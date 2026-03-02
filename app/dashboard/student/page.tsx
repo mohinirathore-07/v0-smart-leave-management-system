@@ -9,7 +9,8 @@ import { Label } from '@/components/ui/label'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
-import { FileText, LogOut, Plus, CheckCircle2, Clock, XCircle } from 'lucide-react'
+import { FileText, LogOut, Plus, CheckCircle2, Clock, XCircle, ArrowLeft } from 'lucide-react'
+import Link from 'next/link'
 
 export default function StudentDashboard() {
   const router = useRouter()
@@ -114,23 +115,29 @@ export default function StudentDashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-purple-100 via-pink-50 to-blue-100">
       {/* Header */}
-      <header className="bg-white border-b border-gray-200">
+      <header className="bg-white border-b border-purple-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center">
+            <div className="w-10 h-10 bg-gradient-to-br from-purple-400 to-purple-500 rounded-lg flex items-center justify-center">
               <FileText className="w-6 h-6 text-white" />
             </div>
             <h1 className="text-2xl font-bold text-gray-900">LeaveHub</h1>
           </div>
-          <button
-            onClick={handleLogout}
-            className="flex items-center gap-2 text-gray-700 hover:text-gray-900 font-semibold"
-          >
-            <LogOut className="w-5 h-5" />
-            Logout
-          </button>
+          <div className="flex items-center gap-4">
+            <Link href="/" className="flex items-center gap-2 text-purple-600 hover:text-purple-700 font-semibold">
+              <ArrowLeft className="w-5 h-5" />
+              Home
+            </Link>
+            <button
+              onClick={handleLogout}
+              className="flex items-center gap-2 text-gray-700 hover:text-gray-900 font-semibold"
+            >
+              <LogOut className="w-5 h-5" />
+              Logout
+            </button>
+          </div>
         </div>
       </header>
 

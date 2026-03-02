@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { FileText } from 'lucide-react'
+import { FileText, ArrowLeft } from 'lucide-react'
 
 export default function SignUp() {
   const [formData, setFormData] = useState({
@@ -77,7 +77,7 @@ export default function SignUp() {
 
   if (success) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center px-4">
+      <div className="min-h-screen bg-gradient-to-br from-purple-100 via-pink-50 to-blue-100 flex items-center justify-center px-4">
         <Card className="w-full max-w-md border-green-200">
           <CardHeader className="text-center">
             <div className="text-5xl mb-4">✓</div>
@@ -92,12 +92,18 @@ export default function SignUp() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center px-4 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-purple-100 via-pink-50 to-blue-100 flex items-center justify-center px-4 py-8">
       <div className="w-full max-w-md">
+        {/* Back Button */}
+        <Link href="/" className="inline-flex items-center gap-2 text-purple-600 hover:text-purple-700 mb-6">
+          <ArrowLeft className="w-4 h-4" />
+          <span className="text-sm font-medium">Back to Home</span>
+        </Link>
+
         {/* Header */}
         <div className="mb-8 text-center">
           <div className="flex items-center justify-center gap-2 mb-4">
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center">
+            <div className="w-10 h-10 bg-gradient-to-br from-purple-400 to-purple-500 rounded-lg flex items-center justify-center">
               <FileText className="w-6 h-6 text-white" />
             </div>
             <span className="text-2xl font-bold text-gray-900">LeaveHub</span>
@@ -106,9 +112,9 @@ export default function SignUp() {
           <p className="text-gray-600">Sign up as a student to manage your leave requests</p>
         </div>
 
-        <Card className="border-blue-200 shadow-lg">
+        <Card className="border-purple-200 shadow-lg bg-white">
           <CardHeader>
-            <CardTitle>Student Registration</CardTitle>
+            <CardTitle className="text-purple-900">Student Registration</CardTitle>
             <CardDescription>Use your MITS college email to register</CardDescription>
           </CardHeader>
           <CardContent>
@@ -225,15 +231,14 @@ export default function SignUp() {
 
               <Button
                 type="submit"
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+                className="w-full bg-purple-400 hover:bg-purple-500 text-white"
                 disabled={loading}
               >
                 {loading ? 'Creating Account...' : 'Create Account'}
               </Button>
-            </form>
 
             <div className="mt-6 text-center">
-              <p className="text-gray-600">Already have an account? <Link href="/auth/login" className="text-blue-600 hover:underline font-semibold">Sign In</Link></p>
+              <p className="text-gray-600">Already have an account? <Link href="/auth/login" className="text-purple-600 hover:underline font-semibold">Sign In</Link></p>
             </div>
           </CardContent>
         </Card>

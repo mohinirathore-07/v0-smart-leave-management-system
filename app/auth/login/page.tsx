@@ -8,7 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { FileText } from 'lucide-react'
+import { FileText, ArrowLeft } from 'lucide-react'
 
 export default function Login() {
   const router = useRouter()
@@ -36,8 +36,6 @@ export default function Login() {
         router.push('/dashboard/coordinator')
       } else if (activeTab === 'hod') {
         router.push('/dashboard/hod')
-      } else if (activeTab === 'admin') {
-        router.push('/dashboard/admin')
       }
     } catch (err) {
       setError('Invalid email or password')
@@ -47,12 +45,18 @@ export default function Login() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center px-4 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-purple-100 via-pink-50 to-blue-100 flex items-center justify-center px-4 py-8">
       <div className="w-full max-w-md">
+        {/* Back Button */}
+        <Link href="/" className="inline-flex items-center gap-2 text-purple-600 hover:text-purple-700 mb-6">
+          <ArrowLeft className="w-4 h-4" />
+          <span className="text-sm font-medium">Back to Home</span>
+        </Link>
+
         {/* Header */}
         <div className="mb-8 text-center">
           <div className="flex items-center justify-center gap-2 mb-4">
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center">
+            <div className="w-10 h-10 bg-gradient-to-br from-purple-400 to-purple-500 rounded-lg flex items-center justify-center">
               <FileText className="w-6 h-6 text-white" />
             </div>
             <span className="text-2xl font-bold text-gray-900">LeaveHub</span>
@@ -61,21 +65,20 @@ export default function Login() {
           <p className="text-gray-600">Sign in to manage your leave requests</p>
         </div>
 
-        <Card className="border-blue-200 shadow-lg">
+        <Card className="border-purple-200 shadow-lg bg-white">
           <CardHeader>
-            <CardTitle>Sign In</CardTitle>
+            <CardTitle className="text-purple-900">Sign In</CardTitle>
             <CardDescription>Select your role and enter your email</CardDescription>
           </CardHeader>
           <CardContent>
             <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-              <TabsList className="grid w-full grid-cols-4 mb-6">
-                <TabsTrigger value="student" className="text-xs">Student</TabsTrigger>
-                <TabsTrigger value="coordinator" className="text-xs">Coordinator</TabsTrigger>
-                <TabsTrigger value="hod" className="text-xs">HOD</TabsTrigger>
-                <TabsTrigger value="admin" className="text-xs">Admin</TabsTrigger>
+              <TabsList className="grid w-full grid-cols-3 mb-6 bg-purple-100">
+                <TabsTrigger value="student" className="text-xs data-[state=active]:bg-purple-400 data-[state=active]:text-white">Student</TabsTrigger>
+                <TabsTrigger value="coordinator" className="text-xs data-[state=active]:bg-purple-400 data-[state=active]:text-white">Coordinator</TabsTrigger>
+                <TabsTrigger value="hod" className="text-xs data-[state=active]:bg-purple-400 data-[state=active]:text-white">HOD</TabsTrigger>
               </TabsList>
 
-              {['student', 'coordinator', 'hod', 'admin'].map((role) => (
+              {['student', 'coordinator', 'hod'].map((role) => (
                 <TabsContent key={role} value={role}>
                   <form onSubmit={handleLogin} className="space-y-4">
                     {error && (
@@ -112,7 +115,7 @@ export default function Login() {
 
                     <Button
                       type="submit"
-                      className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+                      className="w-full bg-purple-400 hover:bg-purple-500 text-white"
                       disabled={loading}
                     >
                       {loading ? 'Signing in...' : 'Sign In'}
@@ -128,7 +131,7 @@ export default function Login() {
 
             <div className="mt-6 border-t border-gray-200 pt-4">
               <p className="text-center text-gray-600">
-                Don't have a student account? <Link href="/auth/signup" className="text-blue-600 hover:underline font-semibold">Sign Up</Link>
+                Don't have a student account? <Link href="/auth/signup" className="text-purple-600 hover:underline font-semibold">Sign Up</Link>
               </p>
             </div>
           </CardContent>
