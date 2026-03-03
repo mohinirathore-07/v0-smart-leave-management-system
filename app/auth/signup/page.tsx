@@ -92,13 +92,17 @@ export default function SignUp() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-100 via-pink-50 to-blue-100 flex items-center justify-center px-4 py-8">
-      <div className="w-full max-w-md">
-        {/* Back Button */}
-        <Link href="/" className="inline-flex items-center gap-2 text-purple-600 hover:text-purple-700 mb-6">
+    <div className="min-h-screen bg-gradient-to-br from-purple-100 via-pink-50 to-blue-100">
+      {/* Back Button in Top Right */}
+      <div className="fixed top-4 right-4 z-50">
+        <Link href="/" className="inline-flex items-center gap-2 text-purple-600 hover:text-purple-700 bg-white px-4 py-2 rounded-full shadow-md hover:shadow-lg transition-shadow">
           <ArrowLeft className="w-4 h-4" />
           <span className="text-sm font-medium">Back to Home</span>
         </Link>
+      </div>
+
+      <div className="min-h-screen flex items-center justify-center px-4 py-8">
+        <div className="w-full max-w-md">
 
         {/* Header */}
         <div className="mb-8 text-center">
@@ -244,6 +248,7 @@ export default function SignUp() {
             </div>
           </CardContent>
         </Card>
+        </div>
       </div>
     </div>
   )

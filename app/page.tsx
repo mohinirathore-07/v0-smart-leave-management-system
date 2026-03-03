@@ -28,6 +28,9 @@ export default function Home() {
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
         <div className="text-center max-w-4xl mx-auto">
+          <div className="inline-block bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+            SLMS - Smart Leave Management System
+          </div>
           <div className="inline-block bg-purple-200 text-purple-700 px-4 py-2 rounded-full text-sm font-semibold mb-6">
             Simplified Leave Management
           </div>
@@ -49,7 +52,6 @@ export default function Home() {
               </Button>
             </Link>
           </div>
-          <p className="text-sm text-gray-600 mb-8">*Sign up is required before you can sign in</p>
           
           {/* Hero Stats */}
           <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto pt-12 border-t border-gray-200">
