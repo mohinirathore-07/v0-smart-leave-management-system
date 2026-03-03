@@ -40,8 +40,8 @@ export default function SignUp() {
 
     try {
       // Validate college email
-      if (!formData.email.includes('@mits.ac.in')) {
-        setError('Please use your MITS college email address')
+      if (!formData.email.endsWith('@mitsgwl.ac.in')) {
+        setError('Please use your MITS college email address (must end with @mitsgwl.ac.in)')
         setLoading(false)
         return
       }
@@ -144,12 +144,12 @@ export default function SignUp() {
                   id="email"
                   name="email"
                   type="email"
-                  placeholder="john.doe@mits.ac.in"
+                  placeholder="john.doe@mitsgwl.ac.in"
                   value={formData.email}
                   onChange={handleChange}
                   required
                 />
-                <p className="text-xs text-gray-500">Must be your MITS college email</p>
+                <p className="text-xs text-gray-500">Must end with @mitsgwl.ac.in</p>
               </div>
 
               <div className="space-y-2">
@@ -184,7 +184,8 @@ export default function SignUp() {
                     <SelectValue placeholder="Select your department" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="Computer Science">Computer Science & Engineering</SelectItem>
+                    <SelectItem value="Computer Science and Technology">Computer Science and Technology</SelectItem>
+                    <SelectItem value="Artificial Intelligence">Artificial Intelligence</SelectItem>
                     <SelectItem value="Electrical">Electrical Engineering</SelectItem>
                     <SelectItem value="Mechanical">Mechanical Engineering</SelectItem>
                     <SelectItem value="Civil">Civil Engineering</SelectItem>
