@@ -1,254 +1,206 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { CheckCircle2, Clock, FileText, Users } from 'lucide-react'
+import { CheckCircle2, FileText, Zap, Clock, Users } from 'lucide-react'
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-purple-100 via-pink-50 to-blue-100">
+    <main className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="border-b border-purple-200">
+      <nav className="sticky top-0 z-50 bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-purple-400 to-purple-500 rounded-lg flex items-center justify-center">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center">
               <FileText className="w-6 h-6 text-white" />
             </div>
-            <h1 className="text-2xl font-bold text-gray-900">LeaveHub</h1>
+            <span className="text-xl font-bold text-gray-900">LeaveHub</span>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
             <Link href="/auth/login">
-              <Button variant="ghost" className="text-gray-700 hover:text-gray-900">Sign In</Button>
+              <Button variant="ghost" className="text-gray-700 hover:text-gray-900 font-medium">Sign In</Button>
             </Link>
             <Link href="/auth/signup">
-              <Button className="bg-purple-400 hover:bg-purple-500 text-white">Get Started</Button>
+              <Button className="bg-purple-500 hover:bg-purple-600 text-white rounded-full px-6 font-medium">Get Started</Button>
             </Link>
           </div>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div>
-            <div className="inline-block bg-purple-200 text-purple-700 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-              Smart Leave Management
-            </div>
-            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 text-balance leading-tight">
-              Manage Your Leave Requests Effortlessly
-            </h2>
-            <p className="text-lg text-gray-600 mb-8 text-balance">
-              A streamlined platform for MITS students to submit, track, and manage leave requests. From student submission to coordinator approval to final HOD authorization.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/auth/signup">
-                <Button className="w-full sm:w-auto bg-purple-400 hover:bg-purple-500 text-white px-8 py-6 text-lg font-semibold rounded-lg">
-                  Sign Up Now
-                </Button>
-              </Link>
-              <Button variant="outline" className="w-full sm:w-auto border-purple-300 text-purple-600 hover:bg-purple-50 px-8 py-6 text-lg font-semibold rounded-lg">
-                Learn More
-              </Button>
-            </div>
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
+        <div className="text-center max-w-4xl mx-auto">
+          <div className="inline-block bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+            Simplified Leave Management
           </div>
-          <div className="hidden md:block">
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-300 to-purple-500 rounded-2xl blur-3xl opacity-20"></div>
-              <Card className="relative border-purple-200 bg-white shadow-xl">
-                <CardHeader className="border-b border-purple-100">
-                  <CardTitle className="text-purple-900">Leave Request Status</CardTitle>
-                  <CardDescription>Track your application in real-time</CardDescription>
-                </CardHeader>
-                <CardContent className="pt-6 space-y-4">
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                      <CheckCircle2 className="w-6 h-6 text-green-600" />
-                    </div>
-                    <div>
-                      <p className="font-semibold text-gray-900">Submitted</p>
-                      <p className="text-sm text-gray-500">Your request is received</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center">
-                      <Clock className="w-6 h-6 text-yellow-600" />
-                    </div>
-                    <div>
-                      <p className="font-semibold text-gray-900">Coordinator Review</p>
-                      <p className="text-sm text-gray-500">Awaiting approval</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center">
-                      <Users className="w-6 h-6 text-gray-400" />
-                    </div>
-                    <div>
-                      <p className="font-semibold text-gray-900">HOD Approval</p>
-                      <p className="text-sm text-gray-500">Pending</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+          <h1 className="text-6xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+            Leave management made simple
+          </h1>
+          <p className="text-xl text-gray-600 mb-10 leading-relaxed">
+            Streamlined leave requests for MITS students. Submit, track, and get approvals from coordinators and HODs in minutes, not days.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+            <Link href="/auth/signup">
+              <Button className="bg-purple-500 hover:bg-purple-600 text-white px-8 py-6 text-lg font-semibold rounded-full h-auto">
+                Sign Up Free
+              </Button>
+            </Link>
+            <Button variant="outline" className="border-gray-300 text-gray-900 hover:bg-gray-50 px-8 py-6 text-lg font-semibold rounded-full h-auto">
+              View Demo
+            </Button>
+          </div>
+          
+          {/* Hero Stats */}
+          <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto pt-12 border-t border-gray-200">
+            <div className="text-center">
+              <div className="text-3xl font-bold text-gray-900 mb-2">500+</div>
+              <div className="text-gray-600 text-sm">Active Students</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-gray-900 mb-2">98%</div>
+              <div className="text-gray-600 text-sm">Approval Rate</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-gray-900 mb-2">24hrs</div>
+              <div className="text-gray-600 text-sm">Avg Processing</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="bg-white border-t border-purple-200">
+      {/* How It Works */}
+      <section className="bg-gray-50 border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="text-center mb-16">
-            <h3 className="text-4xl font-bold text-gray-900 mb-4">How It Works</h3>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">How it works</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">Simple, transparent, and efficient leave management for everyone</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Step 1 */}
-            <Card className="border-purple-200 hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <div className="w-12 h-12 bg-purple-200 rounded-lg flex items-center justify-center mb-4">
-                  <span className="text-xl font-bold text-purple-600">1</span>
+            {[
+              {
+                num: '1',
+                icon: <FileText className="w-6 h-6" />,
+                title: 'Student Submits',
+                desc: 'Create a new leave request with reason and dates. Our system validates everything.',
+                bg: 'bg-purple-100',
+                color: 'text-purple-600'
+              },
+              {
+                num: '2',
+                icon: <Clock className="w-6 h-6" />,
+                title: 'Coordinator Reviews',
+                desc: 'Class coordinators review and provide feedback. Fast approval process.',
+                bg: 'bg-green-100',
+                color: 'text-green-600'
+              },
+              {
+                num: '3',
+                icon: <Zap className="w-6 h-6" />,
+                title: 'HOD Approves',
+                desc: 'Final authorization from HOD. Get instant notifications.',
+                bg: 'bg-yellow-100',
+                color: 'text-yellow-600'
+              }
+            ].map((step, idx) => (
+              <div key={idx} className="bg-white rounded-lg p-8 border border-gray-200 hover:shadow-lg transition-shadow">
+                <div className={`${step.bg} ${step.color} w-12 h-12 rounded-lg flex items-center justify-center mb-4`}>
+                  {step.icon}
                 </div>
-                <CardTitle>Student Submits</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">Create a new leave request with reason and dates. Our system validates your information and ensures all required details are provided.</p>
-              </CardContent>
-            </Card>
-
-            {/* Step 2 */}
-            <Card className="border-purple-200 hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <div className="w-12 h-12 bg-green-200 rounded-lg flex items-center justify-center mb-4">
-                  <span className="text-xl font-bold text-green-600">2</span>
-                </div>
-                <CardTitle>Coordinator Reviews</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">Class coordinators review your request and provide feedback. They can approve, reject, or request more information from you.</p>
-              </CardContent>
-            </Card>
-
-            {/* Step 3 */}
-            <Card className="border-purple-200 hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <div className="w-12 h-12 bg-yellow-200 rounded-lg flex items-center justify-center mb-4">
-                  <span className="text-xl font-bold text-yellow-600">3</span>
-                </div>
-                <CardTitle>HOD Approves</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">After coordinator approval, the HOD provides final authorization. You'll receive instant notifications at each step.</p>
-              </CardContent>
-            </Card>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">{step.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{step.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* User Types Section */}
-      <section className="bg-gradient-to-br from-purple-100 via-pink-50 to-blue-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="text-center mb-16">
-            <h3 className="text-4xl font-bold text-gray-900 mb-4">For Everyone</h3>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">Whether you're a student, coordinator, or HOD, LeaveHub has you covered</p>
-          </div>
+      {/* Features for Everyone */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Built for everyone</h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">Whether you're a student, coordinator, or HOD, LeaveHub has you covered</p>
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Students */}
-            <Card className="border-purple-300 bg-white">
-              <CardHeader>
-                <div className="text-4xl mb-4">👨‍🎓</div>
-                <CardTitle>For Students</CardTitle>
-                <CardDescription>Seamless leave management</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <div className="flex items-center gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-purple-600 flex-shrink-0" />
-                  <span className="text-gray-700">Easy signup with college email</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-purple-600 flex-shrink-0" />
-                  <span className="text-gray-700">Real-time request tracking</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-purple-600 flex-shrink-0" />
-                  <span className="text-gray-700">View approval history</span>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Coordinators */}
-            <Card className="border-green-300 bg-white">
-              <CardHeader>
-                <div className="text-4xl mb-4">👨‍💼</div>
-                <CardTitle>For Coordinators</CardTitle>
-                <CardDescription>Efficient approval workflow</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <div className="flex items-center gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0" />
-                  <span className="text-gray-700">Dashboard of pending requests</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0" />
-                  <span className="text-gray-700">Add comments and feedback</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0" />
-                  <span className="text-gray-700">Forward to HOD with notes</span>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* HODs */}
-            <Card className="border-yellow-300 bg-white">
-              <CardHeader>
-                <div className="text-4xl mb-4">👨‍🏫</div>
-                <CardTitle>For HODs</CardTitle>
-                <CardDescription>Final authorization made simple</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <div className="flex items-center gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-yellow-600 flex-shrink-0" />
-                  <span className="text-gray-700">Review coordinator feedback</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-yellow-600 flex-shrink-0" />
-                  <span className="text-gray-700">Make final decisions</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-yellow-600 flex-shrink-0" />
-                  <span className="text-gray-700">Track all department requests</span>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {[
+            {
+              emoji: '👨‍🎓',
+              title: 'For Students',
+              subtitle: 'Seamless leave management',
+              features: [
+                'Easy signup with college email',
+                'Real-time request tracking',
+                'View approval history'
+              ],
+              color: 'border-purple-200'
+            },
+            {
+              emoji: '👨‍💼',
+              title: 'For Coordinators',
+              subtitle: 'Efficient approval workflow',
+              features: [
+                'Dashboard of pending requests',
+                'Add comments and feedback',
+                'Forward to HOD with notes'
+              ],
+              color: 'border-green-200'
+            },
+            {
+              emoji: '👨‍🏫',
+              title: 'For HODs',
+              subtitle: 'Final authorization made simple',
+              features: [
+                'Review coordinator feedback',
+                'Make final decisions',
+                'Track all department requests'
+              ],
+              color: 'border-yellow-200'
+            }
+          ].map((role, idx) => (
+            <div key={idx} className={`bg-white border-2 ${role.color} rounded-xl p-8 hover:shadow-lg transition-shadow`}>
+              <div className="text-5xl mb-4">{role.emoji}</div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-1">{role.title}</h3>
+              <p className="text-gray-600 mb-6">{role.subtitle}</p>
+              <ul className="space-y-3">
+                {role.features.map((feature, i) => (
+                  <li key={i} className="flex items-center gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-purple-600 flex-shrink-0" />
+                    <span className="text-gray-700">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-purple-400 to-purple-500">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-          <h3 className="text-4xl font-bold text-white mb-4">Ready to Get Started?</h3>
-          <p className="text-xl text-white mb-8 max-w-2xl mx-auto">Join Madhav Institute of Technology and Science and streamline your leave management today.</p>
+      <section className="bg-gradient-to-r from-purple-500 to-purple-600">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+          <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+            Ready to streamline your leave process?
+          </h2>
+          <p className="text-xl text-purple-100 mb-10">
+            Join Madhav Institute of Technology and Science and manage leaves efficiently.
+          </p>
           <Link href="/auth/signup">
-            <Button className="bg-white text-purple-600 hover:bg-purple-50 px-8 py-6 text-lg font-semibold rounded-lg">
-              Sign Up for Free
+            <Button className="bg-white text-purple-600 hover:bg-gray-50 px-10 py-6 text-lg font-semibold rounded-full h-auto">
+              Get Started Free
             </Button>
           </Link>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-purple-200 bg-white">
+      <footer className="bg-gray-900 text-gray-400">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex items-center gap-2 mb-6 md:mb-0">
-              <div className="w-10 h-10 bg-gradient-to-br from-purple-400 to-purple-500 rounded-lg flex items-center justify-center">
+            <div className="flex items-center gap-3 mb-6 md:mb-0">
+              <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center">
                 <FileText className="w-6 h-6 text-white" />
               </div>
-              <span className="font-bold text-gray-900">LeaveHub</span>
+              <span className="font-bold text-white">LeaveHub</span>
             </div>
-            <p className="text-gray-600 text-center md:text-right">
+            <p className="text-center md:text-right text-gray-500">
               © 2024 Madhav Institute of Technology and Science. All rights reserved.
             </p>
           </div>
