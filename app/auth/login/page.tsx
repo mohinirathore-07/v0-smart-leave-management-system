@@ -138,7 +138,7 @@ export default function Login() {
                 Don't have a student account? <Link href="/auth/signup" className="text-purple-600 hover:underline font-semibold">Sign Up</Link>
               </p>
             </div>
-          </Tabs>
+          </CardContent>
         </Card>
         </div>
       </div>
