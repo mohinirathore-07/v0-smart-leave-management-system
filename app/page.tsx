@@ -29,19 +29,6 @@ export default function Home() {
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
         <div className="text-center max-w-4xl mx-auto">
-          {/* MITS Logo */}
-          <div className="flex justify-center mb-8">
-            <div className="relative w-24 h-24 md:w-32 md:h-32">
-              <Image
-                src="/mits-logo.jpg"
-                alt="MITS Logo - Madhav Institute of Technology and Science"
-                fill
-                className="object-contain"
-                priority
-              />
-            </div>
-          </div>
-          
           <div className="inline-block bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
             SLMS - Smart Leave Management System
           </div>
