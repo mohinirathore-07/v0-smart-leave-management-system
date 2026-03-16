@@ -15,6 +15,7 @@ export default function SignUp() {
     email: '',
     password: '',
     phoneNumber: '',
+    role: 'student',
     rollNumber: '',
     department: '',
     academicYear: '',
@@ -48,7 +49,7 @@ export default function SignUp() {
       }
 
       // Validate all fields
-      if (!formData.fullName || !formData.password || !formData.rollNumber || !formData.department || !formData.academicYear || !formData.semester) {
+      if (!formData.fullName || !formData.password || !formData.role || !formData.rollNumber || !formData.department || !formData.academicYear || !formData.semester) {
         setError('Please fill in all required fields')
         setLoading(false)
         return
@@ -177,6 +178,20 @@ export default function SignUp() {
                   required
                 />
                 <p className="text-xs text-gray-500">Min 8 chars, must include letters, number & special character (!@#$%^&*)</p>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="role">Select Your Role *</Label>
+                <Select value={formData.role} onValueChange={(value) => handleSelectChange('role', value)}>
+                  <SelectTrigger id="role">
+                    <SelectValue placeholder="SELECT YOUR ROLE" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="student">Student</SelectItem>
+                    <SelectItem value="coordinator">Class Coordinator</SelectItem>
+                    <SelectItem value="hod">HOD</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
 
               <div className="space-y-2">
