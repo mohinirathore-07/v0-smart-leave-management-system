@@ -13,6 +13,7 @@ export default function SignUp() {
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
+    password: '',
     phoneNumber: '',
     rollNumber: '',
     department: '',
@@ -47,8 +48,16 @@ export default function SignUp() {
       }
 
       // Validate all fields
-      if (!formData.fullName || !formData.rollNumber || !formData.department || !formData.academicYear || !formData.semester) {
+      if (!formData.fullName || !formData.password || !formData.rollNumber || !formData.department || !formData.academicYear || !formData.semester) {
         setError('Please fill in all required fields')
+        setLoading(false)
+        return
+      }
+
+      // Validate password
+      const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/
+      if (!passwordRegex.test(formData.password)) {
+        setError('Password must be at least 8 characters long and contain letters, numbers, and a special character (!@#$%^&*)')
         setLoading(false)
         return
       }
@@ -135,7 +144,7 @@ export default function SignUp() {
                   id="fullName"
                   name="fullName"
                   type="text"
-                  placeholder="John Doe"
+                  placeholder="ENTER YOUR FULL NAME"
                   value={formData.fullName}
                   onChange={handleChange}
                   required
@@ -148,7 +157,7 @@ export default function SignUp() {
                   id="email"
                   name="email"
                   type="email"
-                  placeholder="john.doe@mitsgwl.ac.in"
+                  placeholder="ENTER YOUR COLLEGE EMAIL ADDRESS"
                   value={formData.email}
                   onChange={handleChange}
                   required
@@ -157,12 +166,26 @@ export default function SignUp() {
               </div>
 
               <div className="space-y-2">
+                <Label htmlFor="password">Password *</Label>
+                <Input
+                  id="password"
+                  name="password"
+                  type="password"
+                  placeholder="ENTER STRONG PASSWORD"
+                  value={formData.password}
+                  onChange={handleChange}
+                  required
+                />
+                <p className="text-xs text-gray-500">Min 8 chars, must include letters, number & special character (!@#$%^&*)</p>
+              </div>
+
+              <div className="space-y-2">
                 <Label htmlFor="phoneNumber">Phone Number</Label>
                 <Input
                   id="phoneNumber"
                   name="phoneNumber"
                   type="tel"
-                  placeholder="+91 98765 43210"
+                  placeholder="ENTER YOUR PHONE NUMBER"
                   value={formData.phoneNumber}
                   onChange={handleChange}
                 />
@@ -174,7 +197,7 @@ export default function SignUp() {
                   id="rollNumber"
                   name="rollNumber"
                   type="text"
-                  placeholder="23CS001"
+                  placeholder="ENTER YOUR ROLL NUMBER"
                   value={formData.rollNumber}
                   onChange={handleChange}
                   required
