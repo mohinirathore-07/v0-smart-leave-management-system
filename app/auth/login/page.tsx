@@ -14,6 +14,7 @@ export default function Login() {
   const router = useRouter()
   const [activeTab, setActiveTab] = useState('student')
   const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
@@ -96,7 +97,7 @@ export default function Login() {
                       <Input
                         id="email"
                         type="email"
-                        placeholder={role === 'student' ? 'student@mits.ac.in' : `${role}@mits.ac.in`}
+                        placeholder={role === 'student' ? 'ENTER YOUR EMAIL ADDRESS' : `ENTER YOUR ${role.toUpperCase()} EMAIL`}
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
@@ -106,13 +107,14 @@ export default function Login() {
                     <div className="space-y-2">
                       <div className="flex justify-between items-center">
                         <Label htmlFor="password">Password</Label>
-                        <Link href="#" className="text-sm text-blue-600 hover:underline">Forgot?</Link>
+                        <Link href="#" className="text-sm text-purple-600 hover:underline">Forgot?</Link>
                       </div>
                       <Input
                         id="password"
                         type="password"
                         placeholder="Enter your password"
-                        defaultValue="password123"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                         required
                       />
                     </div>
@@ -124,10 +126,6 @@ export default function Login() {
                     >
                       {loading ? 'Signing in...' : 'Sign In'}
                     </Button>
-
-                    <p className="text-xs text-gray-500 text-center mt-4">
-                      Demo: Use any email and password "password123" to sign in as {role}
-                    </p>
                   </form>
                 </TabsContent>
               ))}
