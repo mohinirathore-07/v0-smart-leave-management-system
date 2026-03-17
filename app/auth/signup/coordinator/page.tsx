@@ -109,8 +109,8 @@ export default function CoordinatorSignUp() {
         </Link>
       </div>
 
-      <div className="min-h-screen flex items-center justify-center px-4 py-8">
-        <div className="w-full max-w-md">
+      <div className="min-h-screen flex items-center justify-center px-4 py-12">
+        <div className="w-full max-w-md max-h-[90vh] overflow-y-auto">
           {/* Header */}
           <div className="mb-8 text-center">
             <div className="flex items-center justify-center gap-2 mb-4">
