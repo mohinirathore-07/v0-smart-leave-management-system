@@ -36,7 +36,7 @@ export default function Home() {
             Simplified Leave Management
           </div>
           <h1 className="text-6xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-            Leave management made simple
+            Smart Leave Management System
           </h1>
           <p className="text-xl text-gray-600 mb-10 leading-relaxed">
             Streamlined leave requests for MITS students. Submit, track, and get approvals from coordinators and HODs in minutes, not days.
