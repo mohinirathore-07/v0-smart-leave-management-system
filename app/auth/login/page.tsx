@@ -24,11 +24,52 @@ export default function Login() {
     setLoading(true)
 
     try {
+      // Validate inputs
+      if (!email || !password) {
+        setError('Please enter email and password')
+        setLoading(false)
+        return
+      }
+
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1000))
 
-      // For demo purposes, create a session
-      localStorage.setItem('currentUser', JSON.stringify({ email, role: activeTab }))
+      // Get user data from localStorage
+      const userDataStr = localStorage.getItem(email)
+      
+      if (!userDataStr) {
+        setError('Invalid email or password')
+        setLoading(false)
+        return
+      }
+
+      const userData = JSON.parse(userDataStr)
+
+      // Verify password matches
+      if (userData.password !== password) {
+        setError('Invalid email or password')
+        setLoading(false)
+        return
+      }
+
+      // Check if user role matches selected role
+      if (userData.role !== activeTab) {
+        setError(`This account is registered as a ${userData.role}, not a ${activeTab}`)
+        setLoading(false)
+        return
+      }
+
+      // Create session with user data
+      localStorage.setItem('currentUser', JSON.stringify({ 
+        email, 
+        role: activeTab,
+        fullName: userData.fullName,
+        rollNumber: userData.rollNumber,
+        department: userData.department,
+        academicYear: userData.academicYear,
+        semester: userData.semester,
+        phoneNumber: userData.phoneNumber
+      }))
 
       // Redirect based on role
       if (activeTab === 'student') {
@@ -39,7 +80,7 @@ export default function Login() {
         router.push('/dashboard/hod')
       }
     } catch (err) {
-      setError('Invalid email or password')
+      setError('An error occurred. Please try again.')
     } finally {
       setLoading(false)
     }
