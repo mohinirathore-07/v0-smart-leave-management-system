@@ -75,11 +75,11 @@ export default function SignUpRoleSelection() {
                 </CardHeader>
                 <CardContent>
                   <Button
-                    onClick={() => handleRoleSelect(role.id)}
-                    className="w-full bg-gradient-to-r from-purple-400 to-purple-500 hover:from-purple-500 hover:to-purple-600 text-white font-semibold py-6 rounded-full text-lg"
-                  >
-                    Sign Up as {role.title}
-                  </Button>
+  onClick={() => handleRoleSelect(role.id)}
+  className="w-full bg-gradient-to-r from-purple-400 to-purple-500 hover:from-purple-500 hover:to-purple-600 text-white font-semibold py-4 px-3 rounded-full text-sm whitespace-normal text-center"
+>
+  Sign Up as {role.title}
+</Button>
                 </CardContent>
               </Card>
             ))}
